@@ -26,10 +26,3 @@ export interface MainProps {
 export interface FooterProps {
   timeout: boolean
 }
-
-export interface LayoutProps {
-  children: React.ReactNode
-  location?: {
-    pathname: string
-  }
-}

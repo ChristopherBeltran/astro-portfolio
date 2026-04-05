@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeaderProps } from '../types'
+import type { HeaderProps } from '../types'
 
 const text = '< / >'
 

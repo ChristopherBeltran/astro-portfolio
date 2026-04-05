@@ -1,16 +1,8 @@
 import React from 'react'
-import Helmet from 'react-helmet';
 
 const Stack: React.FC = () => (
     <div id="stack">
         <section className="section is-size-4-desktop is-size-5-touch">
-        <Helmet
-        script={[{
-            async: true,
-            src: 'https://cdn1.stackshare.io/javascripts/client-code.js',
-            charSet: 'utf-8',
-        }]}
-        />
         <div className="has-text-centered">
         <p className="content">
         I have experience with various languages, frameworks, and libraries. For more details check out my current stack via StackShare.

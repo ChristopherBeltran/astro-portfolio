@@ -1,6 +1,6 @@
 import React from 'react'
 import Stack from './Stack'
-import { MainProps } from '../types'
+import type { MainProps } from '../types'
 
 class Main extends React.Component<MainProps> {
   handleProjectsClick = () => {
@@ -75,7 +75,7 @@ class Main extends React.Component<MainProps> {
             <span className="image main">
               <img
                 src={
-                  '/static/jobScraper-c39fad7b02875b9f81f79b36383d5f96.jpg'
+                  '/images/jobScraper.jpg'
                 }
                 alt=""
               />
@@ -122,7 +122,7 @@ class Main extends React.Component<MainProps> {
             <span className="image main">
               <img
                 src={
-                  '/static/stashapp-063c92b8c052aee07f6922fb0a916651.jpg'
+                  '/images/stashapp.jpg'
                 }
                 alt=""
               />
@@ -178,7 +178,7 @@ class Main extends React.Component<MainProps> {
             <span className="image main">
               <img
                 src={
-                  '/static/pawsitive-ffa7f3f62882bc5ea33f560f9ef04fb2.jpg'
+                  '/images/pawsitive.jpg'
                 }
                 alt=""
               />
@@ -221,7 +221,7 @@ class Main extends React.Component<MainProps> {
             <span className="image main">
               <img
                 src={
-                  '/static/concert-ad4b184a33b22e3578b8103b331a3df1.jpg'
+                  '/images/concert.jpg'
                 }
                 alt=""
               />
@@ -272,7 +272,7 @@ class Main extends React.Component<MainProps> {
             website and provides the user with their projected stats.{' '}
             <span className="image main">
               <img
-                src={'/static/fantasy-8375f1d0cdc2776214ba9189b4e517a3.jpg'}
+                src={'/images/fantasy.jpg'}
                 alt=""
               />
               <br />{' '}
@@ -318,7 +318,7 @@ class Main extends React.Component<MainProps> {
             display: 'none',
           }}
         >
-          <h2 className="major"> Stack </h2> <Stack> </Stack> {close}{' '}
+          <h2 className="major"> Stack </h2> <Stack /> {close}{' '}
         </article>
         <article
           id="contact"
