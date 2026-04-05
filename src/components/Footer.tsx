@@ -1,7 +1,6 @@
-import React from 'react'
 import type { FooterProps } from '../types'
 
-const Footer: React.FC<FooterProps> = ({ timeout }) => (
+const Footer = ({ timeout }: FooterProps) => (
     <footer id="footer"
         style={
             timeout ? {
