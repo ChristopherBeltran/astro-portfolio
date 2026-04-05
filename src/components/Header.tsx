@@ -1,11 +1,9 @@
 import type { HeaderProps } from '../types'
 
-const text = '< / >'
-
 const Header = ({ onOpenArticle, timeout }: HeaderProps) => (
   <header id="header" style={timeout ? { display: 'none' } : {}}>
     <div className="logo">
-      <span className='icon'><b>{text}</b></span>
+      <img src="/images/portfolio-logo.png" alt="Logo" />
     </div>
     <div className="content">
       <div className="inner">
