@@ -83,6 +83,8 @@ const Main = ({ article, articleTimeout, timeout, onCloseArticle, setWrapperRef 
                 <li>
                   <a
                     href="https://github.com/ChristopherBeltran/job-scraper"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="icon fa-github"
                     style={{
                       float: 'left',
@@ -130,6 +132,8 @@ const Main = ({ article, articleTimeout, timeout, onCloseArticle, setWrapperRef 
                 <li>
                   <a
                     href="https://github.com/ChristopherBeltran/stash-app-client"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="icon fa-github"
                     style={{
                       float: 'left',
@@ -177,6 +181,8 @@ const Main = ({ article, articleTimeout, timeout, onCloseArticle, setWrapperRef 
                 <li>
                   <a
                     href="https://github.com/ChristopherBeltran/pawsitive_outreach"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="icon fa-github"
                   ></a>{' '}
                   <p
@@ -220,6 +226,8 @@ const Main = ({ article, articleTimeout, timeout, onCloseArticle, setWrapperRef 
                 <li>
                   <a
                     href="https://github.com/ChristopherBeltran/concert-scrapbook"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="icon fa-github"
                   ></a>{' '}
                   <p
@@ -261,6 +269,8 @@ const Main = ({ article, articleTimeout, timeout, onCloseArticle, setWrapperRef 
                 <li>
                   <a
                     href="https://github.com/ChristopherBeltran/fantasy-projections"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="icon fa-github"
                   ></a>{' '}
                   <p
@@ -310,6 +320,8 @@ const Main = ({ article, articleTimeout, timeout, onCloseArticle, setWrapperRef 
             <li>
               <a
                 href="https://www.linkedin.com/in/christopherbeltran24/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="icon fa-linkedin"
               >
                 <span className="label"> LinkedIn </span>{' '}
@@ -318,6 +330,8 @@ const Main = ({ article, articleTimeout, timeout, onCloseArticle, setWrapperRef 
             <li>
               <a
                 href="https://github.com/ChristopherBeltran"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="icon fa-github"
               >
                 <span className="label"> GitHub </span>{' '}
