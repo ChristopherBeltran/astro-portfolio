@@ -1,112 +1,93 @@
-import React from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import Header from './Header'
 import Main from './Main'
 import Footer from './Footer'
 import type { ArticleId, IndexPageState } from '../types'
 
-class IndexApp extends React.Component<{}, IndexPageState> {
-  private wrapperRef: HTMLDivElement | null = null
-  private timeoutId: ReturnType<typeof setTimeout> | null = null
+const IndexApp = () => {
+  const [state, setState] = useState<IndexPageState>({
+    isArticleVisible: false,
+    timeout: false,
+    articleTimeout: false,
+    article: '',
+    loading: 'is-loading'
+  })
+  const wrapperRef = useRef<HTMLDivElement | null>(null)
 
-  constructor(props: {}) {
-    super(props)
-    this.state = {
-      isArticleVisible: false,
-      timeout: false,
-      articleTimeout: false,
-      article: '',
-      loading: 'is-loading'
-    }
-    this.handleOpenArticle = this.handleOpenArticle.bind(this)
-    this.handleCloseArticle = this.handleCloseArticle.bind(this)
-    this.setWrapperRef = this.setWrapperRef.bind(this)
-    this.handleClickOutside = this.handleClickOutside.bind(this)
-  }
-
-  componentDidMount() {
-    this.timeoutId = setTimeout(() => {
-      this.setState({ loading: '' })
-    }, 100)
-    document.addEventListener('mousedown', this.handleClickOutside)
-  }
-
-  componentWillUnmount() {
-    if (this.timeoutId) {
-      clearTimeout(this.timeoutId)
-    }
-    document.removeEventListener('mousedown', this.handleClickOutside)
-  }
-
-  setWrapperRef(node: HTMLDivElement | null) {
-    this.wrapperRef = node
-  }
-
-  handleOpenArticle(article: ArticleId) {
-    this.setState({
-      isArticleVisible: !this.state.isArticleVisible,
-      article
-    })
+  const handleCloseArticle = useCallback(() => {
+    setState(prev => ({ ...prev, articleTimeout: !prev.articleTimeout }))
 
     setTimeout(() => {
-      this.setState({
-        timeout: !this.state.timeout
-      })
+      setState(prev => ({ ...prev, timeout: !prev.timeout }))
     }, 325)
 
     setTimeout(() => {
-      this.setState({
-        articleTimeout: !this.state.articleTimeout
-      })
-    }, 350)
-  }
-
-  handleCloseArticle() {
-    this.setState({
-      articleTimeout: !this.state.articleTimeout
-    })
-
-    setTimeout(() => {
-      this.setState({
-        timeout: !this.state.timeout
-      })
-    }, 325)
-
-    setTimeout(() => {
-      this.setState({
-        isArticleVisible: !this.state.isArticleVisible,
+      setState(prev => ({
+        ...prev,
+        isArticleVisible: !prev.isArticleVisible,
         article: ''
-      })
+      }))
     }, 350)
-  }
+  }, [])
 
-  handleClickOutside(event: MouseEvent) {
-    if (this.wrapperRef && !this.wrapperRef.contains(event.target as Node)) {
-      if (this.state.isArticleVisible) {
-        this.handleCloseArticle()
+  const handleOpenArticle = useCallback((article: ArticleId) => {
+    setState(prev => ({
+      ...prev,
+      isArticleVisible: !prev.isArticleVisible,
+      article
+    }))
+
+    setTimeout(() => {
+      setState(prev => ({ ...prev, timeout: !prev.timeout }))
+    }, 325)
+
+    setTimeout(() => {
+      setState(prev => ({ ...prev, articleTimeout: !prev.articleTimeout }))
+    }, 350)
+  }, [])
+
+  const setWrapperRef = useCallback((node: HTMLDivElement | null) => {
+    wrapperRef.current = node
+  }, [])
+
+  const handleClickOutside = useCallback((event: MouseEvent) => {
+    if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
+      if (state.isArticleVisible) {
+        handleCloseArticle()
       }
     }
-  }
+  }, [state.isArticleVisible, handleCloseArticle])
 
-  render() {
-    return (
-      <div className={`body ${this.state.loading} ${this.state.isArticleVisible ? 'is-article-visible' : ''}`}>
-        <div id="wrapper">
-          <Header onOpenArticle={this.handleOpenArticle} timeout={this.state.timeout} />
-          <Main
-            isArticleVisible={this.state.isArticleVisible}
-            timeout={this.state.timeout}
-            articleTimeout={this.state.articleTimeout}
-            article={this.state.article}
-            onOpenArticle={this.handleOpenArticle}
-            onCloseArticle={this.handleCloseArticle}
-            setWrapperRef={this.setWrapperRef}
-          />
-          <Footer timeout={this.state.timeout} />
-        </div>
-        <div id="bg"></div>
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setState(prev => ({ ...prev, loading: '' }))
+    }, 100)
+    return () => clearTimeout(timeoutId)
+  }, [])
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [handleClickOutside])
+
+  return (
+    <div className={`body ${state.loading} ${state.isArticleVisible ? 'is-article-visible' : ''}`}>
+      <div id="wrapper">
+        <Header onOpenArticle={handleOpenArticle} timeout={state.timeout} />
+        <Main
+          isArticleVisible={state.isArticleVisible}
+          timeout={state.timeout}
+          articleTimeout={state.articleTimeout}
+          article={state.article}
+          onOpenArticle={handleOpenArticle}
+          onCloseArticle={handleCloseArticle}
+          setWrapperRef={setWrapperRef}
+        />
+        <Footer timeout={state.timeout} />
       </div>
-    )
-  }
+      <div id="bg"></div>
+    </div>
+  )
 }
 
 export default IndexApp
