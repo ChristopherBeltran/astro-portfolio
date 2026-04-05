@@ -36,13 +36,13 @@ const Main = ({ article, articleTimeout, timeout, onCloseArticle, setWrapperRef 
         >
           <h2 className="major"> About </h2>
           <p>
-            Hi, I 'm Chris Beltran <span role="img">👋🏼</span>, a Full Stack
-            Software Engineer located in Denver, CO. I have over 10 years of
-            experience in the tech industry, filling various roles within
-            Quality Assurance. After graduating from Flatiron Schools software
-            engineering bootcamp in 2019, I slowly started my crossover to the
-            development side, taking on a few automation engineering roles,
-            before landing my current role as a fullstack engineer.{' '}
+            Hi, I'm Chris Beltran <span role="img">👋🏼</span>, a Full Stack
+            Software Engineer based in Los Angeles, CA. With over 4 years of
+            experience building web applications using Node.js, TypeScript, and
+            React, I specialize in creating robust, full stack solutions. My
+            journey into software engineering began after a decade in the tech
+            industry across various QA roles, giving me a unique perspective on
+            building quality software from the ground up.{' '}
           </p>{' '}
           {close}{' '}
         </article>
@@ -58,9 +58,8 @@ const Main = ({ article, articleTimeout, timeout, onCloseArticle, setWrapperRef 
           <h2 className="major"> Projects </h2>
           <p>
             {' '}
-            While at Flatiron Schools Software Engineering bootcamp, I worked on
-            various projects. After completing the bootcamp, I fine-tuned these
-            projects with enhanced features and I' m continuing to develop more.{' '}
+            Here are some of the projects I've built over the years, from
+            full stack web apps to CLI tools.{' '}
           </p>{' '}
           <hr />
           <h3 className="major">Job Bot </h3>{' '}
@@ -135,15 +134,6 @@ const Main = ({ article, articleTimeout, timeout, onCloseArticle, setWrapperRef 
                     style={{
                       float: 'left',
                     }}
-                  ></a>{' '}
-                  <a
-                    href="https://stashapp.herokuapp.com/"
-                    className="icon fa-external-link"
-                    style={{
-                      float: 'left',
-                      marginLeft: '0px',
-                    }}
-                    target="_blank"
                   ></a>{' '}
                   <p
                     style={{
@@ -231,15 +221,6 @@ const Main = ({ article, articleTimeout, timeout, onCloseArticle, setWrapperRef 
                   <a
                     href="https://github.com/ChristopherBeltran/concert-scrapbook"
                     className="icon fa-github"
-                  ></a>{' '}
-                  <a
-                    href="https://concert-scrapbook.herokuapp.com"
-                    className="icon fa-external-link"
-                    style={{
-                      float: 'left',
-                      marginLeft: '10px',
-                    }}
-                    target="_blank"
                   ></a>{' '}
                   <p
                     style={{
