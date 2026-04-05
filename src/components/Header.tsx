@@ -1,9 +1,8 @@
-import React from 'react'
 import type { HeaderProps } from '../types'
 
 const text = '< / >'
 
-const Header: React.FC<HeaderProps> = ({ onOpenArticle, timeout }) => (
+const Header = ({ onOpenArticle, timeout }: HeaderProps) => (
   <header id="header" style={timeout ? { display: 'none' } : {}}>
     <div className="logo">
       <span className='icon'><b>{text}</b></span>
