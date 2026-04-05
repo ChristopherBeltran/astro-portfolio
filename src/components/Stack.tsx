@@ -1,6 +1,4 @@
-import React from 'react'
-
-const Stack: React.FC = () => (
+const Stack = () => (
     <div id="stack">
         <section className="section is-size-4-desktop is-size-5-touch">
         <div className="has-text-centered">
