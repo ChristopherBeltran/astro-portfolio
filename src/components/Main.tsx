@@ -1,39 +1,34 @@
-import React from 'react'
 import Stack from './Stack'
 import type { MainProps } from '../types'
 
-class Main extends React.Component<MainProps> {
-  handleProjectsClick = () => {
-    this.props.onOpenArticle('projects')
-  }
-  render() {
-    let close = (
-      <div
-        className="close"
-        onClick={() => {
-          this.props.onCloseArticle()
-        }}
-      ></div>
-    )
+const Main = ({ article, articleTimeout, timeout, onCloseArticle, setWrapperRef }: MainProps) => {
+  const close = (
+    <div
+      className="close"
+      onClick={() => {
+        onCloseArticle()
+      }}
+    ></div>
+  )
 
-    return (
-      <div
-        ref={this.props.setWrapperRef}
-        id="main"
-        style={
-          this.props.timeout
-            ? {
-                display: 'flex',
-              }
-            : {
-                display: 'none',
-              }
-        }
-      >
+  return (
+    <div
+      ref={setWrapperRef}
+      id="main"
+      style={
+        timeout
+          ? {
+              display: 'flex',
+            }
+          : {
+              display: 'none',
+            }
+      }
+    >
         <article
           id="about"
-          className={`${this.props.article === 'about' ? 'active' : ''} ${
-            this.props.articleTimeout ? 'timeout' : ''
+          className={`${article === 'about' ? 'active' : ''} ${
+            articleTimeout ? 'timeout' : ''
           }`}
           style={{
             display: 'none',
@@ -53,8 +48,8 @@ class Main extends React.Component<MainProps> {
         </article>
         <article
           id="projects"
-          className={`${this.props.article === 'projects' ? 'active' : ''} ${
-            this.props.articleTimeout ? 'timeout' : ''
+          className={`${article === 'projects' ? 'active' : ''} ${
+            articleTimeout ? 'timeout' : ''
           }`}
           style={{
             display: 'none',
@@ -311,8 +306,8 @@ class Main extends React.Component<MainProps> {
         </article>
         <article
           id="stack"
-          className={`${this.props.article === 'stack' ? 'active' : ''} ${
-            this.props.articleTimeout ? 'timeout' : ''
+          className={`${article === 'stack' ? 'active' : ''} ${
+            articleTimeout ? 'timeout' : ''
           }`}
           style={{
             display: 'none',
@@ -322,8 +317,8 @@ class Main extends React.Component<MainProps> {
         </article>
         <article
           id="contact"
-          className={`${this.props.article === 'contact' ? 'active' : ''} ${
-            this.props.articleTimeout ? 'timeout' : ''
+          className={`${article === 'contact' ? 'active' : ''} ${
+            articleTimeout ? 'timeout' : ''
           }`}
           style={{
             display: 'none',
@@ -360,7 +355,6 @@ class Main extends React.Component<MainProps> {
         </article>{' '}
       </div>
     )
-  }
 }
 
 export default Main
