@@ -28,7 +28,7 @@
     "@types/react-dom": "^19.2.3",
     "prettier": "^3.3.0",
     "sass": "^1.77.0",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.3"
   },
   "repository": {
     "type": "git",
