@@ -5,7 +5,7 @@
   "author": "Chris Beltran",
   "type": "module",
   "dependencies": {
-    "@astrojs/react": "^5.0.2",
+    "@astrojs/react": "^5.0.4",
     "astro": "^6.1.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
